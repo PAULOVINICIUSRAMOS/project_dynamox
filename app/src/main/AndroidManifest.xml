@@ -30,6 +30,10 @@
             android:name=".activity.ScreenQuestionsActivity"
             android:exported="false">
         </activity>
+        <activity
+            android:name=".activity.SupportActivity"
+            android:exported="false">
+        </activity>
 
     </application>
 

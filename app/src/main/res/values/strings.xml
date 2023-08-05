@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">dynamox</string>
+    <string name="explanation_text">
+
+        2. Você será apresentado a uma série de perguntas.
+        3. Escolha a resposta correta entre as opções fornecidas.
+        4. Cada pergunta tem um limite de tempo para responder.
+        5. Responda o máximo de perguntas corretamente no menor tempo possível.
+        6. Cada resposta correta ganha pontos para sua pontuação geral.
+        7. No final do quiz, você verá sua pontuação e seu desempenho.
+    </string>
 </resources>

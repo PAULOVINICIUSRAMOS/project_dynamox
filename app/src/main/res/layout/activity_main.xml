@@ -17,12 +17,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:text="Digite seu nome ou apelido"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:fontFamily="sans-serif-condensed-light"
-            android:layout_marginBottom="18dp"
+            style="@style/label.info.regular"
+            android:layout_marginBottom="20dp"
             android:textSize="20sp"/>
 
         <EditText
@@ -32,7 +31,8 @@
             android:background="@drawable/rounded_edittext"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
-            android:textSize="12sp"
+            android:textSize="18sp"
+            style="@style/label.info.regular"
             android:hint="Digite aqui" />
 
         <Button
@@ -40,6 +40,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/primary"
+            style="@style/label.info.regular"
+            android:textColor="@color/white"
             android:text="Iniciar" />
 
     </LinearLayout>
