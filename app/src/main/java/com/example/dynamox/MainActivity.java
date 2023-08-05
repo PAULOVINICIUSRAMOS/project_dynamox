@@ -1,7 +1,6 @@
 package com.example.dynamox;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +10,6 @@ import android.view.View;
 import com.example.dynamox.activity.ScreenQuestionsActivity;
 import com.example.dynamox.controller.DatabaseHelper;
 import com.example.dynamox.data.database.DatabaseConfig;
-import com.example.dynamox.data.entity.UserEntity;
 import com.example.dynamox.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,10 +27,10 @@ public class MainActivity extends AppCompatActivity {
         mContext = mRoot.getContext();
         setContentView(mRoot);
 
-        configDataBase();
+        saveNameUser();
     }
 
-    private void configDataBase() {
+    private void saveNameUser() {
         final DatabaseHelper databaseHelper = new DatabaseHelper(getApplicationContext());
         binding.buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
