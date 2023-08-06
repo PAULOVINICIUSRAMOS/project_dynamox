@@ -18,6 +18,9 @@ public class AnswerOptionsAdapter extends RecyclerView.Adapter<AnswerOptionsAdap
     private AdapterItemOptionBinding binding;
     private ArrayList<String> options;
     private int selectedPosition = -1;
+    private OnItemClickListener itemClickListener;
+
+    public AnswerOptionsAdapter(){};
 
     public AnswerOptionsAdapter(ArrayList<String> options) {
         this.options = options;
@@ -26,8 +29,6 @@ public class AnswerOptionsAdapter extends RecyclerView.Adapter<AnswerOptionsAdap
     public interface OnItemClickListener {
         void onItemClick(int position);
     }
-
-    private OnItemClickListener itemClickListener;
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         itemClickListener = listener;
@@ -55,8 +56,7 @@ public class AnswerOptionsAdapter extends RecyclerView.Adapter<AnswerOptionsAdap
             holder.binding.textViewOption.setTypeface(null, Typeface.NORMAL);
         }
 
-        // Defina o OnClickListener para o TextView
-        holder.itemView.setOnClickListener(v -> {
+        holder.binding.textViewOption.setOnClickListener(v -> {
             if (itemClickListener != null) {
                 itemClickListener.onItemClick(position);
                 setSelectedPosition(position);
