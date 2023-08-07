@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.dynamox.activity.SupportActivity;
+import com.example.dynamox.activity.ScreenQuestionsActivity;
 import com.example.dynamox.controller.DatabaseHelper;
 import com.example.dynamox.data.database.DatabaseConfig;
 import com.example.dynamox.databinding.ActivityMainBinding;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                Intent intent = new Intent(MainActivity.this, SupportActivity.class);
+                Intent intent = new Intent(MainActivity.this, ScreenQuestionsActivity.class);
                 startActivity(intent);
             }
         });

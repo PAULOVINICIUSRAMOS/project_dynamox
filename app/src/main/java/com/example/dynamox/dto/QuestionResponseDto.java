@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class QuestionResponseDto {
 
     @SerializedName("id")
-    private String id;
+    private long id;
 
     @SerializedName("statement")
     private String statement;
@@ -15,11 +15,11 @@ public class QuestionResponseDto {
     @SerializedName("options")
     private ArrayList<String> options;
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 

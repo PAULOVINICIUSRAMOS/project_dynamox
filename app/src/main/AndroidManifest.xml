@@ -31,10 +31,8 @@
             android:exported="false">
         </activity>
         <activity
-            android:name=".activity.SupportActivity"
+            android:name=".activity.FinalResultActivity"
             android:exported="false">
         </activity>
-
     </application>
-
 </manifest>
