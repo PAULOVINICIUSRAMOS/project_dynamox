@@ -21,15 +21,16 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             style="@style/label.info.regular"
-            android:layout_marginBottom="20dp"
-            android:textSize="20sp"/>
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="2dp"
+            android:textSize="22sp"/>
 
         <EditText
             android:id="@+id/editTextName"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/rounded_edittext"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:padding="10dp"
             android:textSize="18sp"
             style="@style/label.info.regular"
@@ -38,7 +39,7 @@
         <Button
             android:id="@+id/buttonStart"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:backgroundTint="@color/primary"
             style="@style/label.info.regular"
             android:textColor="@color/white"

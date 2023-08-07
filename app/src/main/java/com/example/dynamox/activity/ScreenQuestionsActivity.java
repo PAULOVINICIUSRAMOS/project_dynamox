@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -39,6 +40,7 @@ public class ScreenQuestionsActivity extends AppCompatActivity implements Answer
     private static String selectedAnswer;
     private Handler handler = new Handler();
     private Dialog loadingDialog;
+    private Dialog feedbackDialog;
 
     View mRoot;
     Context mContext;
@@ -53,6 +55,7 @@ public class ScreenQuestionsActivity extends AppCompatActivity implements Answer
         setContentView(mRoot);
         getQuestionFromApi();
         configAnimator();
+        configDialog();
     }
 
     private void showLoadingScreen() {
@@ -164,6 +167,7 @@ public class ScreenQuestionsActivity extends AppCompatActivity implements Answer
                     if (response.isSuccessful()) {
                         AnswerResponse answerResponse = response.body();
                         boolean isCorrect = answerResponse.isResult();
+                        showAnswerFeedback(isCorrect);
                         if (isCorrect) {
                             score++;
                         }
@@ -171,16 +175,35 @@ public class ScreenQuestionsActivity extends AppCompatActivity implements Answer
                         int errorCode = response.code();
                         System.out.println("Erro na resposta da API. Código: " + errorCode);
                     }
-                    getQuestionFromApi();
                 }
 
                 @Override
                 public void onFailure(Call<AnswerResponse> call, Throwable t) {
                     System.out.println("Erro na comunicação com a API: " + t.getMessage());
-                    getQuestionFromApi();
                 }
             });
         }
+    }
+
+    private void showAnswerFeedback(boolean isCorrect) {
+        String feedbackText;
+
+        if (isCorrect) {
+            feedbackText = "Parabens você acertou!";
+        } else {
+            feedbackText = "Resposta incorreta.";
+        }
+
+        TextView txtDialogFeedback = feedbackDialog.findViewById(R.id.txt_dialog_feedback);
+        txtDialogFeedback.setText(feedbackText);
+
+        feedbackDialog.show();
+
+        handler.postDelayed(() -> {
+            feedbackDialog.dismiss();
+            selectedAnswer = null;
+            getQuestionFromApi();
+        }, 2000);
     }
 
     private void configAnimator() {
@@ -188,5 +211,11 @@ public class ScreenQuestionsActivity extends AppCompatActivity implements Answer
         animator.setTarget(binding.imageScreen);
         animator.setInterpolator(new LinearInterpolator());
         animator.start();
+    }
+
+    private void configDialog(){
+        feedbackDialog = new Dialog(this);
+        feedbackDialog.setContentView(R.layout.dialog);
+        feedbackDialog.setCancelable(false);
     }
 }

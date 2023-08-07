@@ -51,7 +51,7 @@
         android:id="@+id/buttonRestart"
         style="@style/label.info.regular"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@id/cardView"
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"

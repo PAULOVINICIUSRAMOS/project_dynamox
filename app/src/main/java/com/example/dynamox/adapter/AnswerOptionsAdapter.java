@@ -1,5 +1,4 @@
 package com.example.dynamox.adapter;
-
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -19,8 +18,6 @@ public class AnswerOptionsAdapter extends RecyclerView.Adapter<AnswerOptionsAdap
     private ArrayList<String> options;
     private int selectedPosition = -1;
     private OnItemClickListener itemClickListener;
-
-    public AnswerOptionsAdapter(){};
 
     public AnswerOptionsAdapter(ArrayList<String> options) {
         this.options = options;
